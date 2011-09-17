@@ -17,11 +17,13 @@ Jeweler::Tasks.new do |gem|
   gem.name = "testing_rails"
   gem.homepage = "http://github.com/wooandoo/testing_rails"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "Initialize the configuration of the rails application to be tested."
+  gem.description = "Initialize the configuration of the rails application to be tested."
   gem.email = "frederic.mascaro@wo-oo.com"
   gem.authors = ["Frédéric Mascaro"]
   # dependencies defined in Gemfile
+  gem.files = Dir.glob('lib/**/*.rb')
+  gem.require_path = "lib"
 end
 Jeweler::RubygemsDotOrgTasks.new
 
