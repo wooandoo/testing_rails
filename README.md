@@ -12,11 +12,15 @@ The tests are launched by guard and accelerated by spork.
 
 In the Gemfile:
 
-	gem "testing_rails"
+```ruby
+gem "testing_rails"
+```
 
 So configure the rails application to test it:
 
-	rake wooandoo:testing
+```ruby
+rake wooandoo:testing
+```
 
 Start guard to execute rspec tests:
 
