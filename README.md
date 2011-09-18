@@ -19,7 +19,7 @@ gem "testing_rails"
 So configure the rails application to test it:
 
 ```ruby
-rake wooandoo:testing
+rails g wooandoo:testing
 ```
 
 Start guard to execute rspec tests:
