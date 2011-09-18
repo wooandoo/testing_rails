@@ -1,6 +1,26 @@
 = testing_rails
 
-Description goes here.
+Testing rails is a generator to install and configure components in a rails application to test it with RSpec:
+
+- rspec-rails
+- capybara
+- factory-girl
+
+The tests are launched by guard and accelerated by spork.
+
+== Installation
+
+In the Gemfile:
+
+	gem "testing_rails"
+
+So configure the rails application to test it:
+
+	rake wooandoo:testing
+
+Start guard to execute rspec tests:
+
+	guard
 
 == Contributing to testing_rails
  
