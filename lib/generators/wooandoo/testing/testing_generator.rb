@@ -13,6 +13,8 @@ module Wooandoo
         init_rspec
         init_spork
         init_guard
+
+				update_test_environment
       end
 
       # ----------------------------------------------------------------
@@ -35,6 +37,7 @@ module Wooandoo
 
         gem "capybara", :group => :test
         gem "capybara-webkit", :group => :test
+        gem "launchy", :group => :test
 
         gem "factory_girl_rails", :group => :test
 
@@ -72,7 +75,7 @@ module Wooandoo
         run "guard init rspec"
         
         gsub_file "Guardfile", /guard 'spork'(.*?) do/, "guard 'spork'\1, :wait => 10 do"
-        gsub_file "Guardfile", /guard 'rspec'(.*?) do/, "guard 'rspec'\1, :cli => \"--drb -f d\" do"
+        gsub_file "Guardfile", /guard 'rspec'(.*?) do/, "guard 'rspec'\1, :cli => \"--drb -f d\", :all_on_start => false, :all_after_pass => false do"
       end
       
       # ----------------------------------------------------------------
@@ -88,6 +91,12 @@ module Wooandoo
         #   end
         # end
       end
+
+			# ----------------------------------------------------------------
+			
+			def update_test_environment
+				gsub_file File.join("config", "environments", "test.rb"), /config.cache_classes = true/, "config.cache_classes = false"
+			end
     end
   end
 end

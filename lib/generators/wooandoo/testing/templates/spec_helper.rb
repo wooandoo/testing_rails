@@ -61,6 +61,10 @@ Spork.prefork do
 		config.after :each do
 		  # DatabaseCleaner.clean
 		end
+		
+		config.treat_symbols_as_metadata_keys_with_true_values = true
+		config.filter_run :focus => true
+		config.run_all_when_everyting_filtered = true
 	end
 	
 end
@@ -69,8 +73,9 @@ Spork.each_run do
   # This code will be run each time you run your specs.
   # ApplicationName::Application.reload_routes!
 
-	FactoryGirl.factories.clear
-	Dir[Rails.root.join("spec/factories/**/*.rb")].each{|f| load f}
+	FactoryGirl.reload
+	# Dir[Rails.root.join("spec/factories/**/*.rb")].each{|f| load f}
+	# Dir[Rails.root.join("app/api/**/*.rb")].each{|f| load f}
 end
 
 # --- Instructions ---
