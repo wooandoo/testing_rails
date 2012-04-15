@@ -72,10 +72,12 @@ end
 Spork.each_run do
   # This code will be run each time you run your specs.
   # ApplicationName::Application.reload_routes!
-
+	
+	Dir[Rails.root.join("app/models/**/*.rb")].each{|f| load f}
+	Dir[Rails.root.join("app/api/**/*.rb")].each{|f| load f}
+	Dir[Rails.root.join("spec/factories/**/*.rb")].each{|f| load f}
+	
 	FactoryGirl.reload
-	# Dir[Rails.root.join("spec/factories/**/*.rb")].each{|f| load f}
-	# Dir[Rails.root.join("app/api/**/*.rb")].each{|f| load f}
 end
 
 # --- Instructions ---
