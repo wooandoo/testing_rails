@@ -74,7 +74,7 @@ module Wooandoo
 				run "guard init migrate"
 				run "guard init rspec"
 				
-				gsub_file "Guardfile", /guard 'spork'(.*?) do/, "guard 'spork'\1, :wait => 10 do"
+				gsub_file "Guardfile", /guard 'spork'(.*?) do/, "guard 'spork'\1, :rspec => true, :cucumber => false, :test_unit => false, :bundler => false, :wait => 15 do"
 				gsub_file "Guardfile", /guard 'migrate'(.*?) do/, "guard 'migrate'\1, :run_on_start => true, :test_clone => false, :reset => true, :rails_env => 'test' do"
 				gsub_file "Guardfile", /guard 'rspec'(.*?) do/, "guard 'rspec'\1, :cli => \"--drb -f d\", :all_on_start => false, :all_after_pass => false do"
 			end
